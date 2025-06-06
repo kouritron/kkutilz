@@ -1,0 +1,4 @@
+
+This package includes documentation and boilerplate code i use frequently.
+its not meant to live outside --dev in a pipfile in another project.
+
