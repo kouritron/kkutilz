@@ -4,6 +4,8 @@ import sys
 from .base import LGLVL, LOG_RECORD, mk_log_record
 from .base import ANSI_GREEN, ANSI_YELLOW, ANSI_RED, ANSI_RESET
 
+current_log_level = LGLVL.INFO  # Default log level
+
 
 # ------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------
@@ -30,7 +32,8 @@ def _process_log_record(lgr: LOG_RECORD):
     if lgr.msg_lvl == LGLVL.ERRR:
         msg_builder = f'{ANSI_RED}ERRR|{msg_builder}{ANSI_RESET}'
 
-    print(msg_builder, file=sys.stderr)
+    if lgr.msg_lvl.value >= current_log_level.value:
+        print(msg_builder, file=sys.stderr)
 
 
 # ------------------------------------------------------------------------------------------------------------------------------
@@ -53,3 +56,15 @@ def warn(msg: str = ''):
 def err(msg: str = ''):
     lgr = mk_log_record(msg_lvl=LGLVL.ERRR, msg=msg)
     _process_log_record(lgr)
+
+
+def set_log_level(new_log_level: LGLVL):
+    """ Set the current log level. """
+
+    global current_log_level
+
+    if not isinstance(new_log_level, LGLVL):
+        raise ValueError(f"Expected an instance of LGLVL, got {type(new_log_level)}")
+
+    current_log_level = new_log_level
+    info(f"Log level changed to {current_log_level}")
