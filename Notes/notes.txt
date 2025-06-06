@@ -8,7 +8,7 @@ its not meant to live outside --dev in a pipfile in another project.
 # -------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------- Pipfile
 [dev-packages]
-kkutilz = {git = "https://github.com/kazra2025/kkutilz.git"}
+kkutilz = {git = "https://github.com/kouritron/kkutilz.git"}
 
 # -------------------------------------------------------------------------------------------------
 
