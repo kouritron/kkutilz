@@ -13,8 +13,23 @@ def main():
     #     i *= 4242
 
     log.info("Hi again")
-    time.sleep(1)
-    log.info("1 second later")
+
+    print("--------------------")
+    print("--------------------")
+
+    log.set_log_level(log.LGLVL.WARN)
+    log.dbg("this is dbg")
+    log.info("this is info")
+    log.warn("This is a warning")
+    log.err("This is an error")
+
+    print("--------------------")
+    print("--------------------")
+    log.set_log_level(log.LGLVL.DBUG)
+    log.dbg("this is dbg")
+    log.info("this is info")
+    log.warn("This is a warning")
+    log.err("This is an error")
 
 
 # ------------------------------------------------------------------------------------------------------------------------------
