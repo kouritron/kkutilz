@@ -1,0 +1,18 @@
+
+- This package includes documentation and boilerplate code i use frequently.
+its not meant to live outside --dev in a pipfile in another project.
+
+- To install put it inside pipfile and install it.
+
+
+# -------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------- Pipfile
+[dev-packages]
+kkutilz = {git = "https://github.com/kouritron/kkutilz.git"}
+
+# -------------------------------------------------------------------------------------------------
+
+
+
+
+
