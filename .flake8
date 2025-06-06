@@ -11,4 +11,3 @@ ignore = E203, E266, E501, W503, E231
 
 
 exclude = .git, __pycache__, build, dist, .venv, venv, Notes
-
