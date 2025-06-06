@@ -1,24 +1,14 @@
 {
-    "editor.rulers": [128, 140],
-    
-    // -------------------------------------------------------------------------------------------------------------------------
-    // -------------------------------------------------------------------------------------------------------------------------
-    "github.copilot.enable": {
-        "*": false,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false
-    },
-
+    "editor.rulers": [
+        128,
+        140
+    ],
     // -------------------------------------------------------------------------------------------------------------------------
     // -------------------------------------------------------------------------------------------------------------------------
     "python.analysis.extraPaths": [
         "${workspaceFolder}/src",
     ],
     "python.terminal.activateEnvironment": false,
-
     "python.analysis.typeCheckingMode": "standard",
-    "python.analysis.diagnosticSeverityOverrides": {
-
-    }
+    "python.analysis.diagnosticSeverityOverrides": {}
 }
