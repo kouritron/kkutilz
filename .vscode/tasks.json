@@ -27,10 +27,6 @@
                 "python3",
                 "${file}"
             ],
-            "options": {
-                "env": {
-                }
-            },
             "presentation": {
                 "reveal": "always",
                 "panel": "dedicated",
@@ -89,6 +85,11 @@
                 "--start-directory",
                 "${workspaceFolder}/tests/unit_tests",
             ],
+            "options": {
+                "env": {
+                    // "PIPENV_VERBOSITY": "-1"
+                }
+            },
             "presentation": {
                 "reveal": "always",
                 "panel": "dedicated",
