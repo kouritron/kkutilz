@@ -64,9 +64,9 @@ class PipeFedSqliteLogger:
             'line_no': lgr.line_no,
             'func_name': lgr.func_name,
         }
-        lgr_dict_json_str_hex = json.dumps(lgr_dict).encode('utf-8').hex().encode('ascii')
+        lgr_dict_json_hex = json.dumps(lgr_dict).encode('utf-8').hex().encode('ascii') + b'\n'
 
-        os.write(self.log_pipe_write_fd, lgr_dict_json_str_hex)
+        os.write(self.log_pipe_write_fd, lgr_dict_json_hex)
 
 # ------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------
@@ -74,11 +74,16 @@ class PipeFedSqliteLogger:
 # ----------------------------------------------------------------------------------------------------- Child process (log sink)
 def child_entry(log_pipe_read_fd):
     
-    for line in log_pipe_read_fd:
-        line = line.strip()
-        if not line:
-            continue
-        print(f"Child received: {line}")
+    # print current process ID
+    print(f"child_entry() - child pid: {os.getpid()}")
+
+    with os.fdopen(log_pipe_read_fd, 'r') as read_pipe:
+        # Each line in the pipe is one message. read the pipe line by line until EOF
+        for line in read_pipe:
+            line = line.strip()
+            if not line:
+                continue
+            print(f"Child received: {line}")
 
     # loop ends when EOF is reached
     print("Child: EOF, exiting.")
