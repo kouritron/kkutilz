@@ -1,4 +1,4 @@
 from .base import LGLVL
-from .log_stdio import LogStdio
+from .log2stdio import StdioLogger
 
-default_logger = LogStdio()
+default_logger = StdioLogger()
